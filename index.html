@@ -1,267 +1,276 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Dart-uuid by Daegalus</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="made with love by dartdoc 0.8.5">
+  <meta name="description" content="uuid API docs, for the Dart programming language.">
+  <title>uuid - Dart API docs</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Dart-uuid</h1>
-        <p>Generate RFC4122(v1,v4,v5) UUIDs</p>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' type='text/css'>
+  <link rel="stylesheet" href="static-assets/prettify.css">
+  <link rel="stylesheet" href="static-assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
 
-        <p class="view"><a href="https://github.com/Daegalus/dart-uuid">View the Project on GitHub <small>Daegalus/dart-uuid</small></a></p>
+  <!-- Do not remove placeholder -->
+  <!-- Header Placeholder -->
+</head>
 
+<body>
 
-        <ul>
-          <li><a href="https://github.com/Daegalus/dart-uuid/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/Daegalus/dart-uuid/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/Daegalus/dart-uuid">View On <strong>GitHub</strong></a></li>
+<div id="overlay-under-drawer"></div>
+
+<header class="container-fluid" id="title">
+  <nav class="navbar navbar-fixed-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 contents">
+          <ol class="breadcrumbs gt-separated hidden-xs">
+            <li class="self-crumb">uuid</li>
+          </ol>
+          <div class="self-name">uuid</div>
+          <form class="search navbar-right" role="search">
+            <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+          </form>
+        </div> <!-- /col -->
+      </div> <!-- /row -->
+    </div> <!-- /container -->
+  </nav>
+
+  <div class="container masthead">
+    <div class="row">
+      <div class="col-sm-12 contents">
+        <ol class="breadcrumbs gt-separated visible-xs">
+        </ol>
+        <div class="title-description">
+          <h1 class="title">
+            <span class="kind">package</span> uuid
+          </h1>
+        </div>
+        <ul class="subnav">
+          <li><a href="index.html#libraries">Libraries</a></li>
         </ul>
-      </header>
-      <section>
-        <p><a href="https://drone.io/daegalus/dart-uuid/latest"><img src="https://drone.io/daegalus/dart-uuid/status.png" alt=""></a></p>
+      </div> <!-- /col -->
+    </div> <!-- /row -->
+  </div> <!-- /container -->
 
-<h2>
-<a name="v040-is-a-unbreaking-big-breaking-change-in-turn-making-a-breaking-change" class="anchor" href="#v040-is-a-unbreaking-big-breaking-change-in-turn-making-a-breaking-change"><span class="octicon octicon-link"></span></a>v0.4.0 is a unbreaking big breaking change, in turn making a breaking change.</h2>
+</header>
 
-<h2>
-<a name="please-make-sure-if-you-update-to-this-version-you-are-aware-of-the-changes" class="anchor" href="#please-make-sure-if-you-update-to-this-version-you-are-aware-of-the-changes"><span class="octicon octicon-link"></span></a>Please make sure if you update to this version you are aware of the changes.</h2>
+<div class="container body">
+  <div class="row">
 
-<h1>
-<a name="dart-uuid" class="anchor" href="#dart-uuid"><span class="octicon octicon-link"></span></a>dart-uuid</h1>
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5>uuid</h5>
 
+    <ol>
+      <li class="section-title"><a href="index.html#libraries">Libraries</a></li>
+      <li><a href="AES/AES-library.html">AES</a></li>
+      <li><a href="Uuid/Uuid-library.html">Uuid</a></li>
+      <li><a href="UuidUtil/UuidUtil-library.html">UuidUtil</a></li>
+    </ol>
+  </div>
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+
+      <section class="desc markdown">
+        <p><strong>0.5.0 WARNING: MathRNG is now the default RNG method when using v4 of v5. If you wish to use CryptoRNG, import uuid_util.dart and use UuidUtil.cryptoRNG() with the RNG option</strong></p>
+<p><a href="https://drone.io/daegalus/dart-uuid/latest"></a><a href="https://drone.io/daegalus/dart-uuid/status.png"><img src="https://drone.io/daegalus/dart-uuid/status.png"></a></p>
+<h1>dart-uuid</h1>
+<p><a href="https://gitter.im/Daegalus/dart-uuid?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"></a><a href="https://badges.gitter.im/Join%20Chat.svg"><img alt="Join the chat at https://gitter.im/Daegalus/dart-uuid" src="https://badges.gitter.im/Join%20Chat.svg"></a></p>
 <p>Simple, fast generation of <a href="http://www.ietf.org/rfc/rfc4122.txt">RFC4122</a> UUIDs.</p>
-
 <p>Heavily based on node-uuid by Robert Kieffer (I even copied this readme over and modified it.) 
 Primarily becaue it works, well written, and so on.</p>
-
-<p>Features:</p>
-
-<ul>
-<li>Generate RFC4122 version 1, version 4, or version 5 UUIDs</li>
-<li>Runs in dartvm and browsers.</li>
-<li>Cryptographically strong random number generation on all platforms</li>
-<li><a href="http://daegalus.github.com/annotated/dart-uuid/Uuid/Uuid.html">Annotated source code</a></li>
-</ul><h2>
-<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
-
-<h3>
-<a name="instructions" class="anchor" href="#instructions"><span class="octicon octicon-link"></span></a>Instructions</h3>
-
-<ol>
-<li>Open a command line and cd to your projects root folder</li>
-<li>In your pubspec, add an entry for dart-uuid to your dependencies (example below)</li>
-<li>pub install</li>
-<li>If you wish to run tests, go into packages/dart-uuid/ and run 'dart test/uuid_test.dart'</li>
-</ol><h3>
-<a name="pubspec" class="anchor" href="#pubspec"><span class="octicon octicon-link"></span></a>Pubspec</h3>
-
+<p>Features:</p><ul><li>Generate RFC4122 version 1, version 4, or version 5 UUIDs</li><li>Runs in dartvm and browsers.</li><li>Cryptographically strong random number generation on all platforms</li><li><a href="http://daegalus.github.com/annotated/dart-uuid/Uuid/Uuid.html">Annotated source code</a></li></ul>
+<h2>Getting Started</h2>
+<h3>Instructions</h3><ol><li>Open a command line and cd to your projects root folder</li><li>In your pubspec, add an entry for dart-uuid to your dependencies (example below)</li><li>pub install</li><li>If you wish to run tests, go into packages/dart-uuid/ and run 'dart test/uuid_test.dart'</li></ol>
+<h3>Pubspec</h3>
 <p>There are 2 options. Directly from git, or from pub.dartlang.org</p>
-
 <p>pub.dartlang.org: (you can use 'any' instead of a version if you just want the latest always)</p>
-
-<div class="highlight highlight-yaml"><pre><span class="l-Scalar-Plain">dependencies</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">uuid</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0.4.0</span>
-</pre></div>
-
-<div class="highlight highlight-dart"><pre><span class="k">import</span> <span class="s1">'package:uuid/uuid.dart'</span><span class="p">;</span>
-
-<span class="kd">var</span> <span class="n">uuid</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Uuid</span><span class="p">();</span>
-</pre></div>
-
-<p>Then create some ids ...</p>
-
-<div class="highlight highlight-dart"><pre><span class="c1">// Generate a v1 (time-based) id</span>
-<span class="n">uuid</span><span class="p">.</span><span class="n">v1</span><span class="p">();</span> <span class="c1">// -&gt; '6c84fb90-12c4-11e1-840d-7b25c5ee775a'</span>
-
-<span class="c1">// Generate a v4 (random) id</span>
-<span class="n">uuid</span><span class="p">.</span><span class="n">v4</span><span class="p">();</span> <span class="c1">// -&gt; '110ec58a-a0f2-4ac4-8393-c866d813b8d1'</span>
-
-<span class="c1">// Generate a v5 (namespace-name-sha1-based) id</span>
-<span class="n">uuid</span><span class="p">.</span><span class="n">v5</span><span class="p">(</span><span class="n">Uuid</span><span class="p">.</span><span class="n">NAMESPACE_URL</span><span class="p">,</span> <span class="s1">'www.google.com'</span><span class="p">);</span> <span class="c1">// -&gt; 'c74a196f-f19d-5ea9-bffd-a2742432fc9c'</span>
-</pre></div>
-
-<h2>
-<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h2>
-
-<h3>
-<a name="uuidv1map-options-null-list-buffer-null-int-offset-0" class="anchor" href="#uuidv1map-options-null-list-buffer-null-int-offset-0"><span class="octicon octicon-link"></span></a>uuid.v1({Map options: null, List buffer: null, int offset: 0})</h3>
-
-<p>Generate and return a RFC4122 v1 (timestamp-based) UUID.</p>
-
-<ul>
-<li>
-<p><code>options</code> - (Map) Optional uuid state to apply. Properties may include:</p>
-
-<ul>
-<li>
-<code>node</code> - (List) Node id as List of 6 bytes (per 4.1.6). Default: Randomnly generated ID.</li>
-<li>
-<code>clockseq</code> - (Number between 0 - 0x3fff) RFC clock sequence.  Default: An internally maintained clockseq is used.</li>
-<li>
-<code>msecs</code> - (Number) Time in milliseconds since unix Epoch.  Default: The current time is used.</li>
-<li>
-<code>nsecs</code> - (Number between 0-9999) additional time, in 100-nanosecond units. Ignored if <code>msecs</code> is unspecified. Default: internal uuid counter is used, as per 4.2.1.2.</li>
-</ul>
-</li>
-<li><p><code>buffer</code> - (List) Array or buffer where UUID bytes are to be written.</p></li>
-<li>
-<code>offset</code> - (Int) Starting index in <code>buffer</code> at which to begin writing.</li>
-</ul><p>Returns <code>buffer</code>, if specified, otherwise the string form of the UUID</p>
-
-<p>Example: Generate string UUID with fully-specified options</p>
-
-<div class="highlight highlight-dart"><pre><span class="n">uuid</span><span class="p">.</span><span class="n">v1</span><span class="p">(</span><span class="nl">options:</span> <span class="p">{</span>
-    <span class="s1">'node'</span><span class="o">:</span> <span class="p">[</span><span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x23</span><span class="p">,</span> <span class="mh">0x45</span><span class="p">,</span> <span class="mh">0x67</span><span class="p">,</span> <span class="mh">0x89</span><span class="p">,</span> <span class="mh">0xab</span><span class="p">],</span>
-    <span class="s1">'clockSeq'</span><span class="o">:</span> <span class="mh">0x1234</span><span class="p">,</span>
-    <span class="s1">'mSecs'</span><span class="o">:</span> <span class="k">new</span> <span class="n">Date</span><span class="p">(</span><span class="m">2011</span><span class="p">,</span><span class="m">11</span><span class="p">,</span><span class="m">01</span><span class="p">).</span><span class="n">millisecondsSinceEpoch</span><span class="p">,</span>
-    <span class="s1">'nSecs'</span><span class="o">:</span> <span class="m">5678</span>
-<span class="p">})</span>   <span class="c1">// -&gt; "1d6a6e2e-0457-11e1-9234-0123456789ab"</span>
-</pre></div>
-
-<p>Example: In-place generation of two binary IDs</p>
-
-<div class="highlight highlight-dart"><pre><span class="c1">// Generate two ids in an array</span>
-<span class="kd">var</span> <span class="n">myBuffer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">(</span><span class="m">32</span><span class="p">);</span> <span class="c1">// -&gt; []</span>
-<span class="n">uuid</span><span class="p">.</span><span class="n">v1</span><span class="p">(</span><span class="nl">buffer:</span> <span class="n">myBuffer</span><span class="p">);</span>   
-<span class="c1">// -&gt; [115, 189, 5, 128, 201, 91, 17, 225, 146, 52, 109, 0, 9, 0, 52, 128, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]</span>
-<span class="n">uuid</span><span class="p">.</span><span class="n">v1</span><span class="p">(</span><span class="nl">buffer:</span> <span class="n">myBuffer</span><span class="p">,</span> <span class="nl">offset:</span> <span class="m">16</span><span class="p">);</span>  
-<span class="c1">// -&gt; [115, 189, 5, 128, 201, 91, 17, 225, 146, 52, 109, 0, 9, 0, 52, 128, 115, 189, 5, 129, 201, 91, 17, 225, 146, 52, 109, 0, 9, 0, 52, 128]</span>
-
-<span class="c1">// Optionally use uuid.unparse() to get stringify the ids</span>
-<span class="n">uuid</span><span class="p">.</span><span class="n">unparse</span><span class="p">(</span><span class="nl">buffer:</span> <span class="n">myBuffer</span><span class="p">);</span>    <span class="c1">// -&gt; '73bd0580-c95b-11e1-9234-6d0009003480'</span>
-<span class="n">uuid</span><span class="p">.</span><span class="n">unparse</span><span class="p">(</span><span class="nl">buffer:</span> <span class="n">myBuffer</span><span class="p">,</span> <span class="nl">offset:</span> <span class="m">16</span><span class="p">)</span> <span class="c1">// -&gt; '73bd0581-c95b-11e1-9234-6d0009003480'</span>
-</pre></div>
-
-<h3>
-<a name="uuidv4map-options-null-list-buffer-null-int-offset-0" class="anchor" href="#uuidv4map-options-null-list-buffer-null-int-offset-0"><span class="octicon octicon-link"></span></a>uuid.v4({Map options: null, List buffer: null, int offset: 0})</h3>
-
-<p>Generate and return a RFC4122 v4 UUID.</p>
-
-<ul>
-<li>
-<p><code>options</code> - (Map) Optional uuid state to apply. Properties may include:</p>
-
-<ul>
-<li>
-<code>random</code> - (Number[16]) List of 16 numbers (0-255) to use in place of randomly generated values</li>
-<li>
-<code>rng</code> - (Function) Random # generator to use. A Custom function that returns an list[16] of byte values or 1 of 2 provided.</li>
-</ul>
-</li>
-<li><p><code>buffer</code> - (List) Array or buffer where UUID bytes are to be written.</p></li>
-<li>
-<code>offset</code> - (Number) Starting index in <code>buffer</code> at which to begin writing.</li>
-</ul><p>Returns <code>buffer</code>, if specified, otherwise the string form of the UUID</p>
-
-<p>Example: Generate string UUID with fully-specified options</p>
-
-<div class="highlight highlight-dart"><pre><span class="n">uuid</span><span class="p">.</span><span class="n">v4</span><span class="p">(</span><span class="nl">options:</span> <span class="p">{</span>
-  <span class="s1">'random'</span><span class="o">:</span> <span class="p">[</span>
-    <span class="mh">0x10</span><span class="p">,</span> <span class="mh">0x91</span><span class="p">,</span> <span class="mh">0x56</span><span class="p">,</span> <span class="mh">0xbe</span><span class="p">,</span> <span class="mh">0xc4</span><span class="p">,</span> <span class="mh">0xfb</span><span class="p">,</span> <span class="mh">0xc1</span><span class="p">,</span> <span class="mh">0xea</span><span class="p">,</span>
-    <span class="mh">0x71</span><span class="p">,</span> <span class="mh">0xb4</span><span class="p">,</span> <span class="mh">0xef</span><span class="p">,</span> <span class="mh">0xe1</span><span class="p">,</span> <span class="mh">0x67</span><span class="p">,</span> <span class="mh">0x1c</span><span class="p">,</span> <span class="mh">0x58</span><span class="p">,</span> <span class="mh">0x36</span>
-  <span class="p">]</span>
-<span class="p">});</span>
-<span class="c1">// -&gt; "109156be-c4fb-41ea-b1b4-efe1671c5836"</span>
-</pre></div>
-
-<p>Example: Generate two IDs in a single buffer</p>
-
-<div class="highlight highlight-dart"><pre><span class="kd">var</span> <span class="n">myBuffer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">(</span><span class="m">32</span><span class="p">);</span>
-<span class="n">uuid</span><span class="p">.</span><span class="n">v4</span><span class="p">(</span><span class="nl">buffer:</span> <span class="n">myBuffer</span><span class="p">);</span>
-<span class="n">uuid</span><span class="p">.</span><span class="n">v4</span><span class="p">(</span><span class="nl">buffer:</span> <span class="n">myBuffer</span><span class="p">,</span> <span class="nl">offset:</span> <span class="m">16</span><span class="p">);</span>
-</pre></div>
-
-<h3>
-<a name="uuidv5string-namespace-string-name-map-options-null-list-buffer-null-int-offset-0" class="anchor" href="#uuidv5string-namespace-string-name-map-options-null-list-buffer-null-int-offset-0"><span class="octicon octicon-link"></span></a>uuid.v5(String namespace, String name, {Map options: null, List buffer: null, int offset: 0})</h3>
-
-<p>Generate and return a RFC4122 v5 UUID.</p>
-
-<ul>
-<li>
-<p><code>options</code> - (Map) Optional uuid state to apply. Properties may include:</p>
-
-<ul>
-<li>
-<code>randomNamespace</code> - (Boolean) Default True. Returns if you want a v4 generated namespace (true) or NAMESPACE_NIL (false)</li>
-</ul>
-</li>
-<li><p><code>buffer</code> - (List) Array or buffer where UUID bytes are to be written.</p></li>
-<li>
-<code>offset</code> - (Number) Starting index in <code>buffer</code> at which to begin writing.</li>
-</ul><p>Returns <code>buffer</code>, if specified, otherwise the string form of the UUID</p>
-
-<p>Example: Generate string UUID with fully-specified options</p>
-
-<div class="highlight highlight-dart"><pre><span class="n">uuid</span><span class="p">.</span><span class="n">v5</span><span class="p">(</span><span class="n">Uuid</span><span class="p">.</span><span class="n">NAMESPACE_URL</span><span class="p">,</span> <span class="s1">'www.google.com'</span><span class="p">);</span>
-<span class="c1">// -&gt; "c74a196f-f19d-5ea9-bffd-a2742432fc9c"</span>
-</pre></div>
-
-<p>Example: Generate two IDs in a single buffer</p>
-
-<div class="highlight highlight-dart"><pre><span class="kd">var</span> <span class="n">myBuffer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">(</span><span class="m">32</span><span class="p">);</span>
-<span class="n">uuid</span><span class="p">.</span><span class="n">v5</span><span class="p">(</span><span class="n">Uuid</span><span class="p">.</span><span class="n">NAMESPACE_URL</span><span class="p">,</span> <span class="s1">'www.google.com'</span><span class="p">,</span> <span class="nl">buffer:</span> <span class="n">myBuffer</span><span class="p">);</span>
-<span class="n">uuid</span><span class="p">.</span><span class="n">v5</span><span class="p">(</span><span class="n">Uuid</span><span class="p">.</span><span class="n">NAMESPACE_URL</span><span class="p">,</span> <span class="s1">'www.google.com'</span><span class="p">,</span> <span class="nl">buffer:</span> <span class="n">myBuffer</span><span class="p">,</span> <span class="nl">offset:</span> <span class="m">16</span><span class="p">);</span>
-</pre></div>
-
-<h3>
-<a name="uuidparsestring-uuid-list-buffer-null-int-offset-0" class="anchor" href="#uuidparsestring-uuid-list-buffer-null-int-offset-0"><span class="octicon octicon-link"></span></a>uuid.parse(String uuid, {List buffer: null, int offset: 0})</h3>
-
-<h3>
-<a name="uuidunparselist-buffer-int-offset-0" class="anchor" href="#uuidunparselist-buffer-int-offset-0"><span class="octicon octicon-link"></span></a>uuid.unparse(List buffer, {int offset: 0})</h3>
-
-<p>Parse and unparse UUIDs</p>
-
-<ul>
-<li>
-<code>id</code> - (String) UUID(-like) string</li>
-<li>
-<code>buffer</code> - (List) Array or buffer where UUID bytes are to be written. Default: A new Array or Buffer is used</li>
-<li>
-<code>offset</code> - (Int | Number) Starting index in <code>buffer</code> at which to begin writing. Default: 0</li>
-</ul><p>Example parsing and unparsing a UUID string</p>
-
-<div class="highlight highlight-dart"><pre><span class="kd">var</span> <span class="n">bytes</span> <span class="o">=</span> <span class="n">uuid</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">'797ff043-11eb-11e1-80d6-510998755d10'</span><span class="p">);</span> <span class="c1">// -&gt; [121, 127, 240, 67, 17, 235, 17, 225, 128, 214, 81, 9, 152, 117, 93, 16]</span>
-<span class="kd">var</span> <span class="n">string</span> <span class="o">=</span> <span class="n">uuid</span><span class="p">.</span><span class="n">unparse</span><span class="p">(</span><span class="n">bytes</span><span class="p">);</span> <span class="c1">// -&gt; '797ff043-11eb-11e1-80d6-510998755d10'</span>
-</pre></div>
-
-<h2>
-<a name="testing" class="anchor" href="#testing"><span class="octicon octicon-link"></span></a>Testing</h2>
-
-<p>In dartvm</p>
-
-<pre><code>dart test\uuid_test.dart
+<pre class="yaml prettyprint"><code>dependencies:
+  uuid: 0.5.0
 </code></pre>
+<pre class="dart prettyprint"><code>import 'package:uuid/uuid.dart';
 
+var uuid = new Uuid();
+</code></pre>
+<p>Then create some ids ...</p>
+<pre class="dart prettyprint"><code>// Generate a v1 (time-based) id
+uuid.v1(); // -&gt; '6c84fb90-12c4-11e1-840d-7b25c5ee775a'
+
+// Generate a v4 (random) id
+uuid.v4(); // -&gt; '110ec58a-a0f2-4ac4-8393-c866d813b8d1'
+
+// Generate a v5 (namespace-name-sha1-based) id
+uuid.v5(Uuid.NAMESPACE_URL, 'www.google.com'); // -&gt; 'c74a196f-f19d-5ea9-bffd-a2742432fc9c'
+</code></pre>
+<h2>API</h2>
+<h3>uuid.v1({Map options: null, List buffer: null, int offset: 0})</h3>
+<p>Generate and return a RFC4122 v1 (timestamp-based) UUID.</p><ul><li>
+<p><code>options</code> - (Map) Optional uuid state to apply. Properties may include:</p></li><li>
+<p><code>node</code> - (List) Node id as List of 6 bytes (per 4.1.6). Default: Randomnly generated ID.</p></li><li><code>clockseq</code> - (Number between 0 - 0x3fff) RFC clock sequence.  Default: An internally maintained clockseq is used.</li><li><code>msecs</code> - (Number) Time in milliseconds since unix Epoch.  Default: The current time is used.</li><li>
+<p><code>nsecs</code> - (Number between 0-9999) additional time, in 100-nanosecond units. Ignored if <code>msecs</code> is unspecified. Default: internal uuid counter is used, as per 4.2.1.2.</p></li><li>
+<p><code>buffer</code> - (List) Array or buffer where UUID bytes are to be written.</p></li><li><code>offset</code> - (Int) Starting index in <code>buffer</code> at which to begin writing.</li></ul>
+<p>Returns <code>buffer</code>, if specified, otherwise the string form of the UUID</p>
+<p>Example: Generate string UUID with fully-specified options</p>
+<pre class="dart prettyprint"><code>uuid.v1(options: {
+    'node': [0x01, 0x23, 0x45, 0x67, 0x89, 0xab],
+    'clockSeq': 0x1234,
+    'mSecs': new Date(2011,11,01).millisecondsSinceEpoch,
+    'nSecs': 5678
+})   // -&gt; "1d6a6e2e-0457-11e1-9234-0123456789ab"
+</code></pre>
+<p>Example: In-place generation of two binary IDs</p>
+<pre class="dart prettyprint"><code>// Generate two ids in an array
+var myBuffer = new List(32); // -&gt; []
+uuid.v1(buffer: myBuffer);   
+// -&gt; [115, 189, 5, 128, 201, 91, 17, 225, 146, 52, 109, 0, 9, 0, 52, 128, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+uuid.v1(buffer: myBuffer, offset: 16);  
+// -&gt; [115, 189, 5, 128, 201, 91, 17, 225, 146, 52, 109, 0, 9, 0, 52, 128, 115, 189, 5, 129, 201, 91, 17, 225, 146, 52, 109, 0, 9, 0, 52, 128]
+
+// Optionally use uuid.unparse() to get stringify the ids
+uuid.unparse(buffer: myBuffer);    // -&gt; '73bd0580-c95b-11e1-9234-6d0009003480'
+uuid.unparse(buffer: myBuffer, offset: 16) // -&gt; '73bd0581-c95b-11e1-9234-6d0009003480'
+</code></pre>
+<h3>uuid.v4({Map options: null, List buffer: null, int offset: 0})</h3>
+<p>Generate and return a RFC4122 v4 UUID.</p><ul><li>
+<p><code>options</code> - (Map) Optional uuid state to apply. Properties may include:</p></li><li>
+<p><code>random</code> - (Number<code>16</code>) List of 16 numbers (0-255) to use in place of randomly generated values</p></li><li><code>rng</code> - (Function) Random # generator to use. A Custom function that returns an list<code>16</code> of byte values or 1 of 2 provided.</li><li><code>namedArgs</code> - (Map&lt;Symbol, dynamic&gt;) The arguments and values you want to pass to your function.</li><li>
+<p><code>positionalArgs</code> - (List) The positional arguments for your functions. if any.</p></li><li>
+<p><code>buffer</code> - (List) Array or buffer where UUID bytes are to be written.</p></li><li><code>offset</code> - (Number) Starting index in <code>buffer</code> at which to begin writing.</li></ul>
+<p>Returns <code>buffer</code>, if specified, otherwise the string form of the UUID</p>
+<p>Example: Generate string UUID with different RNG method</p>
+<pre class="dart prettyprint"><code>import 'package:uuid/uuid_util.dart';
+uuid.v4(options: {
+  'rng': UuidUtil.cryptoRNG
+});
+// -&gt; "109156be-c4fb-41ea-b1b4-efe1671c5836"
+</code></pre>
+<p>Example: Generate string UUID with different RNG method and named parameters</p>
+<pre class="dart prettyprint"><code>import 'package:uuid/uuid_util.dart';
+uuid.v4(options: {
+  'rng': UuidUtil.mathRNG,
+  'namedArgs': new Map.fromIterables([const Symbol('seed')],[1])
+});
+// -&gt; "09a91894-e93f-4141-a3ec-82eb32f2a3ef"
+</code></pre>
+<p>Example: Generate string UUID with different RNG method and positional parameters</p>
+<pre class="dart prettyprint"><code>import 'package:uuid/uuid_util.dart';
+uuid.v4(options: {
+  'rng': UuidUtil.mathRNG,
+  'positionalArgs': [1]
+});
+// -&gt; "09a91894-e93f-4141-a3ec-82eb32f2a3ef"
+</code></pre>
+<p>Example: Generate string UUID with fully-specified options</p>
+<pre class="dart prettyprint"><code>uuid.v4(options: {
+  'random': [
+    0x10, 0x91, 0x56, 0xbe, 0xc4, 0xfb, 0xc1, 0xea,
+    0x71, 0xb4, 0xef, 0xe1, 0x67, 0x1c, 0x58, 0x36
+  ]
+});
+// -&gt; "109156be-c4fb-41ea-b1b4-efe1671c5836"
+</code></pre>
+<p>Example: Generate two IDs in a single buffer</p>
+<pre class="dart prettyprint"><code>var myBuffer = new List(32);
+uuid.v4(buffer: myBuffer);
+uuid.v4(buffer: myBuffer, offset: 16);
+</code></pre>
+<h3>uuid.v5(String namespace, String name, {Map options: null, List buffer: null, int offset: 0})</h3>
+<p>Generate and return a RFC4122 v5 UUID.</p><ul><li>
+<p><code>options</code> - (Map) Optional uuid state to apply. Properties may include:</p></li><li>
+<p><code>randomNamespace</code> - (Boolean) Default True. Returns if you want a v4 generated namespace (true) or NAMESPACE_NIL (false)</p></li><li>
+<p><code>buffer</code> - (List) Array or buffer where UUID bytes are to be written.</p></li><li><code>offset</code> - (Number) Starting index in <code>buffer</code> at which to begin writing.</li></ul>
+<p>Returns <code>buffer</code>, if specified, otherwise the string form of the UUID</p>
+<p>Example: Generate string UUID with fully-specified options</p>
+<pre class="dart prettyprint"><code>uuid.v5(Uuid.NAMESPACE_URL, 'www.google.com');
+// -&gt; "c74a196f-f19d-5ea9-bffd-a2742432fc9c"
+</code></pre>
+<p>Example: Generate two IDs in a single buffer</p>
+<pre class="dart prettyprint"><code>var myBuffer = new List(32);
+uuid.v5(Uuid.NAMESPACE_URL, 'www.google.com', buffer: myBuffer);
+uuid.v5(Uuid.NAMESPACE_URL, 'www.google.com', buffer: myBuffer, offset: 16);
+</code></pre>
+<h3>uuid.parse(String uuid, {List buffer: null, int offset: 0})</h3>
+<h3>uuid.unparse(List buffer, {int offset: 0})</h3>
+<p>Parse and unparse UUIDs</p><ul><li><code>id</code> - (String) UUID(-like) string</li><li><code>buffer</code> - (List) Array or buffer where UUID bytes are to be written. Default: A new Array or Buffer is used</li><li><code>offset</code> - (Int | Number) Starting index in <code>buffer</code> at which to begin writing. Default: 0</li></ul>
+<p>Example parsing and unparsing a UUID string</p>
+<pre class="dart prettyprint"><code>var bytes = uuid.parse('797ff043-11eb-11e1-80d6-510998755d10'); // -&gt; [121, 127, 240, 67, 17, 235, 17, 225, 128, 214, 81, 9, 152, 117, 93, 16]
+var string = uuid.unparse(bytes); // -&gt; '797ff043-11eb-11e1-80d6-510998755d10'
+</code></pre>
+<p>For more examples or usage, check my test implementations.</p>
+<h2>Testing</h2>
+<p>In dartvm</p>
+<pre class="prettyprint lang-dart"><code>dart test\uuid_test.dart
+</code></pre>
 <p>In Browser</p>
-
 <p>N/A as I have not used or tested this in the browser. But there are users of this library that do, and reported that it does infact work.</p>
-
-<h3>
-<a name="benchmarking" class="anchor" href="#benchmarking"><span class="octicon octicon-link"></span></a>Benchmarking</h3>
-
+<h3>Benchmarking</h3>
 <p>Its pretty quick, but no official benchmarking.</p>
-
-<h2>
-<a name="release-notes" class="anchor" href="#release-notes"><span class="octicon octicon-link"></span></a>Release notes</h2>
-
+<h2>Release notes</h2>
 <p>See CHANGELOG</p>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/Daegalus">Daegalus</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+      
+    <section class="summary" id="libraries">
+      <h2>Libraries</h2>
+      <dl>
+          <dt id="AES">
+            <span class="name"><a href="AES/AES-library.html">AES</a></span>
+          </dt>
+          <dd>
+          </dd>
+          <dt id="Uuid">
+            <span class="name"><a href="Uuid/Uuid-library.html">Uuid</a></span>
+          </dt>
+          <dd>
+          </dd>
+          <dt id="UuidUtil">
+            <span class="name"><a href="UuidUtil/UuidUtil-library.html">UuidUtil</a></span>
+          </dt>
+          <dd>
+          </dd>
+      </dl>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <div class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+
+  </div><!--/.sidebar-offcanvas-right-->
+
+</div> <!-- row -->
+</div> <!-- container -->
+
+<footer>
+  <div class="container-fluid">
+    <div class="container">
+      <p class="text-center">
+        <span class="no-break">
+          uuid 0.5.1
+        </span>
+        &bull;
+        <span class="no-break">
+          <a href="https://www.dartlang.org">
+            <img src="static-assets/favicon.png" alt="Dart" title="Dart" width="16" height="16">
+          </a>
+        </span>
+        &bull;
+        <span class="copyright no-break">
+          <a href="http://creativecommons.org/licenses/by-sa/4.0/">cc license</a>
+        </span>
+      </p>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/prettify.js"></script>
+<script src="static-assets/script.js"></script>
+<!-- Do not remove placeholder -->
+<!-- Footer Placeholder -->
+
+</body>
+
 </html>

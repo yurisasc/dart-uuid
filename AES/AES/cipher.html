@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the cipher method from the AES class, for the Dart programming language.">
+  <title>cipher method - AES class - AES library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../..">
+
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' type='text/css'>
+  <link rel="stylesheet" href="static-assets/prettify.css">
+  <link rel="stylesheet" href="static-assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+  <!-- Do not remove placeholder -->
+  <!-- Header Placeholder -->
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header class="container-fluid" id="title">
+  <nav class="navbar navbar-fixed-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 contents">
+          <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+          <ol class="breadcrumbs gt-separated hidden-xs">
+            <li><a href="index.html">uuid</a></li>
+            <li><a href="AES/AES-library.html">AES</a></li>
+            <li><a href="AES/AES-class.html">AES</a></li>
+            <li class="self-crumb">cipher</li>
+          </ol>
+          <div class="self-name">cipher</div>
+          <form class="search navbar-right" role="search">
+            <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+          </form>
+        </div> <!-- /col -->
+      </div> <!-- /row -->
+    </div> <!-- /container -->
+  </nav>
+
+  <div class="container masthead">
+    <div class="row">
+      <div class="col-sm-12 contents">
+        <ol class="breadcrumbs gt-separated visible-xs">
+          <li><a href="index.html">uuid</a></li>
+          <li><a href="AES/AES-library.html">AES</a></li>
+          <li><a href="AES/AES-class.html">AES</a></li>
+          <li class="self-crumb">cipher</li>
+        </ol>
+        <div class="title-description">
+          <h1 class="title">
+            <span class="kind">method</span> cipher
+          </h1>
+        </div>
+        <ul class="subnav">
+          <li><a href="AES/AES/cipher.html#source">Source</a></li>
+        </ul>
+      </div> <!-- /col -->
+    </div> <!-- /row -->
+  </div> <!-- /container -->
+
+</header>
+
+<div class="container body">
+  <div class="row">
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5><a href="index.html">uuid</a></h5>
+    <h5><a href="AES/AES-library.html">AES</a></h5>
+    <h5><a href="AES/AES-class.html">AES</a></h5>
+
+    <ol>
+    
+    
+      <li class="section-title"><a href="AES/AES-class.html#static-methods">Static methods</a></li>
+      <li><a href="AES/AES/cipher.html">cipher</a></li>
+      <li><a href="AES/AES/keyExpansion.html">keyExpansion</a></li>
+    
+      <li class="section-title"><a href="AES/AES-class.html#constructors">Constructors</a></li>
+      <li><a href="AES/AES/AES.html">AES</a></li>
+    
+      <li class="section-title inherited">
+        <a href="AES/AES-class.html#instance-properties">Properties</a>
+      </li>
+      <li class="inherited"><a href="AES/AES/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="AES/AES/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title inherited"><a href="AES/AES-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="AES/AES/operator_equals.html">operator ==</a></li>
+    
+      <li class="section-title inherited"><a href="AES/AES-class.html#instance-methods">Methods</a></li>
+      <li class="inherited"><a href="AES/AES/noSuchMethod.html">noSuchMethod</a></li>
+      <li class="inherited"><a href="AES/AES/toString.html">toString</a></li>
+    </ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+    <section class="multi-line-signature">
+      <span class="returntype">List</span>
+      <span class="name ">cipher</span>(<wbr><span class="parameter" id="cipher-param-input"><span class="type-annotation">List</span> <span class="parameter-name">input</span></span>, <span class="parameter" id="cipher-param-keySchedule"><span class="type-annotation">List</span> <span class="parameter-name">keySchedule</span></span>)
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">static List cipher(List input, List keySchedule) {
+  int blockSize = 4; //block size - fixed at 4 for AES
+  int numRounds = keySchedule.length ~/ blockSize-1; // number of rounds (10/12/14 for 128/192/256-bit keys)
+
+  // Initialize 4xNb byte-array &apos;state&apos; with input [§3.4]
+  var state = &lt;List&lt;int&gt;&gt;[new List(4),new List(4),new List(4),new List(4)];
+  for (int i = 0; i &lt; 4*blockSize; i++) {
+    int r = i%4;
+    int c = (i~/4).floor();
+    state[r][c] = input[i];
+  }
+
+  state = _addRoundKey(state, keySchedule, 0, blockSize);
+  for (int round=1; round&lt;numRounds; round++) {
+    state = _subBytes(state, blockSize);
+    state = _shiftRows(state, blockSize);
+    state = _mixColumns(state, blockSize);
+    state = _addRoundKey(state, keySchedule, round, blockSize);
+  }
+
+  state = _subBytes(state, blockSize);
+  state = _shiftRows(state, blockSize);
+  state = _addRoundKey(state, keySchedule, numRounds, blockSize);
+
+  var output = new List(4*blockSize);
+  for (int i=0; i &lt; 4*blockSize; i++) {
+    output[i] = state[i%4][(i~/4).floor()];
+  }
+  return output;
+}</code></pre>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+</div> <!-- row -->
+</div> <!-- container -->
+
+<footer>
+  <div class="container-fluid">
+    <div class="container">
+      <p class="text-center">
+        <span class="no-break">
+          uuid 0.5.1
+        </span>
+        &bull;
+        <span class="no-break">
+          <a href="https://www.dartlang.org">
+            <img src="static-assets/favicon.png" alt="Dart" title="Dart" width="16" height="16">
+          </a>
+        </span>
+        &bull;
+        <span class="copyright no-break">
+          <a href="http://creativecommons.org/licenses/by-sa/4.0/">cc license</a>
+        </span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/prettify.js"></script>
+<script src="static-assets/script.js"></script>
+<!-- Do not remove placeholder -->
+<!-- Footer Placeholder -->
+
+</body>
+
+</html>

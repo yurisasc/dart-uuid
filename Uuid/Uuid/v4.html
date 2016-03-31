@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="API docs for the v4 method from the Uuid class, for the Dart programming language.">
+  <title>v4 method - Uuid class - Uuid library - Dart API</title>
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../..">
+
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Code+Pro|Roboto:500,400italic,300,400' type='text/css'>
+  <link rel="stylesheet" href="static-assets/prettify.css">
+  <link rel="stylesheet" href="static-assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+  <!-- Do not remove placeholder -->
+  <!-- Header Placeholder -->
+</head>
+
+<body>
+
+<div id="overlay-under-drawer"></div>
+
+<header class="container-fluid" id="title">
+  <nav class="navbar navbar-fixed-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 contents">
+          <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+          <ol class="breadcrumbs gt-separated hidden-xs">
+            <li><a href="index.html">uuid</a></li>
+            <li><a href="Uuid/Uuid-library.html">Uuid</a></li>
+            <li><a href="Uuid/Uuid-class.html">Uuid</a></li>
+            <li class="self-crumb">v4</li>
+          </ol>
+          <div class="self-name">v4</div>
+          <form class="search navbar-right" role="search">
+            <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+          </form>
+        </div> <!-- /col -->
+      </div> <!-- /row -->
+    </div> <!-- /container -->
+  </nav>
+
+  <div class="container masthead">
+    <div class="row">
+      <div class="col-sm-12 contents">
+        <ol class="breadcrumbs gt-separated visible-xs">
+          <li><a href="index.html">uuid</a></li>
+          <li><a href="Uuid/Uuid-library.html">Uuid</a></li>
+          <li><a href="Uuid/Uuid-class.html">Uuid</a></li>
+          <li class="self-crumb">v4</li>
+        </ol>
+        <div class="title-description">
+          <h1 class="title">
+            <span class="kind">method</span> v4
+          </h1>
+        </div>
+        <ul class="subnav">
+          <li><a href="Uuid/Uuid/v4.html#source">Source</a></li>
+        </ul>
+      </div> <!-- /col -->
+    </div> <!-- /row -->
+  </div> <!-- /container -->
+
+</header>
+
+<div class="container body">
+  <div class="row">
+
+  <div class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <h5><a href="index.html">uuid</a></h5>
+    <h5><a href="Uuid/Uuid-library.html">Uuid</a></h5>
+    <h5><a href="Uuid/Uuid-class.html">Uuid</a></h5>
+
+    <ol>
+      <li class="section-title"><a href="Uuid/Uuid-class.html#constants">Constants</a></li>
+      <li><a href="Uuid/Uuid/NAMESPACE_DNS-constant.html">NAMESPACE_DNS</a></li>
+      <li><a href="Uuid/Uuid/NAMESPACE_NIL-constant.html">NAMESPACE_NIL</a></li>
+      <li><a href="Uuid/Uuid/NAMESPACE_OID-constant.html">NAMESPACE_OID</a></li>
+      <li><a href="Uuid/Uuid/NAMESPACE_URL-constant.html">NAMESPACE_URL</a></li>
+      <li><a href="Uuid/Uuid/NAMESPACE_X500-constant.html">NAMESPACE_X500</a></li>
+    
+      <li class="section-title"><a href="Uuid/Uuid-class.html#static-properties">Static properties</a></li>
+      <li><a href="Uuid/Uuid/TAU.html">TAU</a></li>
+    
+    
+      <li class="section-title"><a href="Uuid/Uuid-class.html#constructors">Constructors</a></li>
+      <li><a href="Uuid/Uuid/Uuid.html">Uuid</a></li>
+    
+      <li class="section-title inherited">
+        <a href="Uuid/Uuid-class.html#instance-properties">Properties</a>
+      </li>
+      <li class="inherited"><a href="Uuid/Uuid/hashCode.html">hashCode</a></li>
+      <li class="inherited"><a href="Uuid/Uuid/runtimeType.html">runtimeType</a></li>
+    
+      <li class="section-title inherited"><a href="Uuid/Uuid-class.html#operators">Operators</a></li>
+      <li class="inherited"><a href="Uuid/Uuid/operator_equals.html">operator ==</a></li>
+    
+      <li class="section-title"><a href="Uuid/Uuid-class.html#instance-methods">Methods</a></li>
+      <li class="inherited"><a href="Uuid/Uuid/noSuchMethod.html">noSuchMethod</a></li>
+      <li><a href="Uuid/Uuid/parse.html">parse</a></li>
+      <li class="inherited"><a href="Uuid/Uuid/toString.html">toString</a></li>
+      <li><a href="Uuid/Uuid/unparse.html">unparse</a></li>
+      <li><a href="Uuid/Uuid/v1.html">v1</a></li>
+      <li><a href="Uuid/Uuid/v4.html">v4</a></li>
+      <li><a href="Uuid/Uuid/v5.html">v5</a></li>
+    </ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div class="col-xs-12 col-sm-9 col-md-8 main-content">
+    <section class="multi-line-signature">
+      <span class="returntype">dynamic</span>
+      <span class="name ">v4</span>(<wbr>{<span class="parameter" id="v4-param-options"><span class="type-annotation">Map&lt;String, dynamic&gt;</span> <span class="parameter-name">options</span>: <span class="default-value">null</span></span>, <span class="parameter" id="v4-param-buffer"><span class="type-annotation">List</span> <span class="parameter-name">buffer</span>: <span class="default-value">null</span></span>, <span class="parameter" id="v4-param-offset"><span class="type-annotation">int</span> <span class="parameter-name">offset</span>: <span class="default-value">0</span></span>})
+    </section>
+    <section class="desc markdown">
+      <p>v4() Generates a time-based version 4 UUID</p>
+<p>By default it will generate a string based AES-based RNG, and will return
+a string.</p>
+<p>If an optional <code>buffer</code> list is provided, it will put the byte data into
+that buffer and return a buffer.</p>
+<p>Optionally an <code>offset</code> can be provided with a start position in the buffer.</p>
+<p>The first argument is an options map that takes various configuration
+options detailed in the readme.</p>
+<p>http://tools.ietf.org/html/rfc4122.html#section-4.4</p>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Source</span> </h2>
+      <pre><code class="prettyprint lang-dart">v4({Map&lt;String, dynamic&gt; options: null, List buffer: null, int offset: 0}) {
+  var i = offset;
+  options = (options != null) ? options : new Map&lt;String, dynamic&gt;();
+
+  // Use the built-in RNG or a custom provided RNG
+  var positionalArgs = (options[&apos;positionalArgs&apos;] != null) ? options[&apos;positionalArgs&apos;] : [];
+  var namedArgs = (options[&apos;namedArgs&apos;] != null) ? options[&apos;namedArgs&apos;] as Map&lt;Symbol, dynamic&gt; : const &lt;Symbol, dynamic&gt;{};
+  var rng = (options[&apos;rng&apos;] != null) ? Function.apply(options[&apos;rng&apos;], positionalArgs, namedArgs) : UuidUtil.mathRNG();
+
+  // Use provided values over RNG
+  var rnds = (options[&apos;random&apos;] != null) ? options[&apos;random&apos;] : rng;
+
+  // per 4.4, set bits for version and clockSeq high and reserved
+  rnds[6] = (rnds[6] &amp; 0x0f) | 0x40;
+  rnds[8] = (rnds[8] &amp; 0x3f) | 0x80;
+
+  // Copy the bytes to the buffer if one is provided.
+  if (buffer != null) {
+    for (var j = 0; j &lt; 16; j++) {
+      buffer[i+j] = rnds[j];
+    }
+  }
+
+  return (buffer != null) ? buffer : unparse(rnds);
+}</code></pre>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+</div> <!-- row -->
+</div> <!-- container -->
+
+<footer>
+  <div class="container-fluid">
+    <div class="container">
+      <p class="text-center">
+        <span class="no-break">
+          uuid 0.5.1
+        </span>
+        &bull;
+        <span class="no-break">
+          <a href="https://www.dartlang.org">
+            <img src="static-assets/favicon.png" alt="Dart" title="Dart" width="16" height="16">
+          </a>
+        </span>
+        &bull;
+        <span class="copyright no-break">
+          <a href="http://creativecommons.org/licenses/by-sa/4.0/">cc license</a>
+        </span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/prettify.js"></script>
+<script src="static-assets/script.js"></script>
+<!-- Do not remove placeholder -->
+<!-- Footer Placeholder -->
+
+</body>
+
+</html>
